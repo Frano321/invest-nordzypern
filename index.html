@@ -110,7 +110,7 @@ header{background:#faf7f2;border-bottom:1px solid rgba(0,0,0,.06)}
 .carousel-pill.dark{background:rgba(31,45,61,.85);color:#fff;border:1px solid rgba(201,163,106,.4)}
 .carousel-pill.dark .pill-icon{color:#c9a36a}
 .carousel-pill.light .pill-icon{color:#b8633a}
-@media(max-width:600px){.carousel-pill{font-size:.72rem;padding:7px 11px;gap:6px}.carousel-pills{top:12px;right:12px;gap:6px}}
+@media(max-width:600px){.carousel-pill{font-size:.72rem;padding:7px 11px;gap:6px}.carousel-pills{top:12px;right:12px;gap:6px}.carousel-pill.hide-mobile{display:none}}
 .carousel-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
 .carousel-slide{flex:0 0 100%;aspect-ratio:4/3;background-size:cover;background-position:center;position:relative;display:flex;align-items:flex-end}
 @media(min-width:760px){.carousel-slide{aspect-ratio:21/9}}
@@ -559,7 +559,7 @@ body.in-funnel .funnel{display:flex}
       <div class="carousel-controls" id="carouselDots"></div>
       <div class="carousel-pills">
         <div class="carousel-pill dark"><svg class="pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9"/></svg> ab 189.000 £</div>
-        <div class="carousel-pill dark"><svg class="pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Übergabe Q4 2027</div>
+        <div class="carousel-pill dark hide-mobile"><svg class="pill-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Übergabe Q4 2027</div>
       </div>
       </div><!-- /.carousel-inner -->
     </div>

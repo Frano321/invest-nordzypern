@@ -987,6 +987,7 @@ body.in-funnel .funnel{display:flex}
   const screens   = Array.from(document.querySelectorAll('.f-screen'));
   const order     = ['goal','budget','timeline','experience','loading','result','thanks'];
   const totalQ    = 4;
+  const WEBHOOK_URL = 'https://hook.eu2.make.com/fe8dyw9a3q2gvceqc5a64uzo5bhh2cwg';
   const state     = { current:'goal', answers:{}, savedScroll:0 };
 
   const $progress = document.getElementById('fProgress');
@@ -1179,7 +1180,13 @@ body.in-funnel .funnel{display:flex}
       return;
     }
 
-    const payload = { ...state.answers, ...data, ts: new Date().toISOString() };
+    const payload = {
+      ...state.answers,
+      ...data,
+      source: 'invest.immobilien-nordzypern.com',
+      page: location.href,
+      ts: new Date().toISOString()
+    };
 
     if(typeof fbq === 'function'){
       const valueMap = {lt200:120000, '200-350':275000, '350-500':425000, '500-1m':700000, gt1m:1200000};
@@ -1191,12 +1198,12 @@ body.in-funnel .funnel{display:flex}
     }
 
     try{
-      await fetch('/api/lead', {
+      await fetch(WEBHOOK_URL, {
         method:'POST',
         headers:{'Content-Type':'application/json'},
         body: JSON.stringify(payload)
-      }).catch(()=>{});
-    }catch(e){}
+      });
+    }catch(e){ /* Lead-Flow nicht blockieren, falls der Webhook kurz nicht erreichbar ist */ }
 
     document.getElementById('thanksHeadline').textContent = 'Vielen Dank, ' + data.firstname + '!';
     nextScreen();
